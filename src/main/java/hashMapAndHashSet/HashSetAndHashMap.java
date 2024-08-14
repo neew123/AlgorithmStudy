@@ -13,7 +13,6 @@ public class HashSetAndHashMap {
         //true,因为字符串的内容相同
         System.out.println("str1 equals str2: "+str1.equals(str2));
 
-
         System.out.println("--------------HashSet----------------");
         HashSet<String> set  = new HashSet<>();
         set.add(str1);

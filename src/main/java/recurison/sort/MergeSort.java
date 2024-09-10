@@ -89,4 +89,37 @@ public class MergeSort {
         }
     }
 
+
+    //
+    public static void process(int[] arr,int L,int R){
+        if(L==R){
+            return;
+        }
+        int mid = L+((R-L)>>1);
+        process(arr,L,mid);
+        process(arr,mid+1,R);
+        mergeP(arr,L,mid,R);
+    }
+
+    public static void mergeP(int[] arr,int L,int mid,int R){
+        int[] help = new int[R-L+1];
+        int i = 0;
+        int a1 = L;
+        int a2 = mid+1;
+        while(a1<=mid && a2 <= R){
+            help[i++] = arr[a1]<=arr[a2]?arr[a1++]:arr[a2++];
+        }
+        while(a1<=mid){
+            help[i++] = arr[a1++];
+        }
+        while (a2<=R){
+            help[i++] = arr[a2++];
+        }
+
+        for(int k = 0;k<help.length;k++){
+            arr[L+k] = help[k];
+        }
+    }
+
+
 }

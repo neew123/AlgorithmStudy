@@ -32,6 +32,7 @@ public class MergeSort_InversionPairs {
             res += arr[p1] > arr[p2] ? (mid-p1+1) : 0;
         }
 
+
         while(p1<=mid){
             help[i++] = arr[p1++];
         }

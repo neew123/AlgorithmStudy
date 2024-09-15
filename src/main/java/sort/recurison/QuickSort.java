@@ -1,4 +1,4 @@
-package recurison.sort;
+package sort.recurison;
 
 
 import java.io.*;

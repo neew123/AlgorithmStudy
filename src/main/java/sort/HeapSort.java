@@ -1,4 +1,4 @@
-package recurison.sort;
+package sort;
 
 
 /**
@@ -7,7 +7,7 @@ package recurison.sort;
  */
 public class HeapSort {
 
-    //从底到顶建立大根堆O(n),整体时间复杂度为O(n*logN)
+    //从下到上建立大根堆O(n),整体时间复杂度为O(n*logN)
     public static void heapSortDownToUp(int[] arr){
         int n = arr.length;
         for(int i = n-1;i>=0;i--){
@@ -21,16 +21,17 @@ public class HeapSort {
     }
 
 
-    //从顶到底建立大根堆O(n*logn),整体时间复杂度O(n*logn)
+    //从上到下建立大根堆O(n*logn),整体时间复杂度O(n*logn)
     public static void heapSortTopToDown (int[] arr){
         int n = arr.length;
-        for(int i = 0;i<n;i++){
-            heapInsert(arr,i);
+        for(int i = 0;i<n;i++){  //O(n)
+            heapInsert(arr,i);   //O(logN)
         }
-        int size = n;
-        while(size>1){
-            swap(arr,0,--size);
-            heapify(arr,0,size);
+        int heapSize = n;
+        swap(arr,0,--heapSize);
+        while(heapSize > 0){   // O(N)
+            heapify(arr,0,heapSize); // O(logN)
+            swap(arr,0,--heapSize);
         }
     }
 
@@ -43,11 +44,11 @@ public class HeapSort {
     }
 
     //i位置的数，向下调整大根堆,时间复杂度为O(logN)
-    public static void heapify(int[] arr,int i,int size){
+    public static void heapify(int[] arr,int i,int heapSize){
         int left = 2*i+1;
         //右孩子=左孩子+1
-        while (left<size){
-            int largest = (left+1<size)&&(arr[left+1]>arr[left])?left+1:left;
+        while (left<heapSize){//判断该位置i是否还有孩子，如果小于size，说明还有孩子
+            int largest = (left+1<heapSize)&&(arr[left+1]>arr[left])?left+1:left;
             largest = arr[largest]>arr[i]?largest:i;
             if(largest == i){
                 break;

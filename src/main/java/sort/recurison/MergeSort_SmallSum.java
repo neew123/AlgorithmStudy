@@ -34,7 +34,7 @@ public class MergeSort_SmallSum {
         int p2 = mid+1;
         int res = 0;
         while (p1<=mid && p2<=r){
-            help[i++] = arr[p1]<arr[p2]?arr[p1]:arr[p2];//注意这里与归并排序的区别，相等时优先复制右侧
+            help[i++] = arr[p1]<arr[p2]?arr[p1++]:arr[p2++];//注意这里与归并排序的区别，相等时优先复制右侧
             res += arr[p1]<arr[p2]?(arr[p1]*(r-p2+1)):0;
         }
         while (p1<=mid){

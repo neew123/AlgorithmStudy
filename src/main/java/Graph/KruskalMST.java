@@ -25,12 +25,11 @@ public class KruskalMST {
         }
         while (!priorityQueue.isEmpty()){
             Edge edge = priorityQueue.poll();
-            if(!unionFind.isSameSet(edge.from,edge.to)){
+            //if(!unionFind.isSameSet(edge.from,edge.to)){
                 result.add(edge);
-                unionFind.union(edge.from,edge.to);
+               // unionFind.union(edge.from,edge.to);
             }
-        }
         return result;
+        }
     }
 
-}

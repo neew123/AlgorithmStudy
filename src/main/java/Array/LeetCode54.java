@@ -18,25 +18,25 @@ public class LeetCode54 {
         int top = 0,bottom = m-1;
         while (numEle>0){
             //从左到右
-            for(int i = left;i<=right;i++){
+            for(int i = left;i<=right&& numEle>=1;i++){
                 ans.add(matrix[top][i]);
                 numEle--;
             }
             top++;
             //从上到下
-            for(int i = top;i<=bottom;i++){
+            for(int i = top;i<=bottom&& numEle>=1;i++){
                 ans.add(matrix[i][right]);
                 numEle--;
             }
             right--;
             //从右到左
-            for(int i = right;i>=left;i--){
+            for(int i = right;i>=left&& numEle>=1;i--){
                 ans.add(matrix[bottom][i]);
                 numEle--;
             }
             bottom--;
             //从下到上
-            for(int i = bottom;i>=top;i--){
+            for(int i = bottom;i>=top&& numEle>=1;i--){
                 ans.add(matrix[i][left]);
                 numEle--;
             }
